@@ -5,6 +5,7 @@ let clicks = 0;
 
 button.addEventListener("click", () => {
     clicks++;
+    navigator.vibrate(15)
     makeSound();
     counterDisplay.textContent = `${clicks}`;
 })
