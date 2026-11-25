@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,6 +22,16 @@ main {
     height: 100vh;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 300px;
+    max-width: 500px;
+}
+
 .btn {
     font-family: Arial, sans-serif;
     font-weight: 800;
@@ -35,10 +47,20 @@ main {
     box-shadow: 0 20px 0 rgb(99, 5, 5), inset 0 2px 5px rgba(255, 255, 255, 0.35),
                 0 22px 10px rgba(0, 0, 0, 0.3);
     transition: 80ms ease-out;
+    z-index: 2;
 }
 
 .btn:active {
     transform: translateY(15px);
     box-shadow: 0 5px 0 rgb(99, 5, 5), inset 0 2px 5px rgba(255, 255, 255, 0.35),
                 0 7px 10px rgba(0, 0, 0, 0.3);
+}
+
+.counter {
+    font-family: "BBH Bartle", sans-serif;
+    font-size: clamp(30px, 14vw, 175px);
+    background: linear-gradient(to bottom, #413e3e, transparent 65%);
+    color: transparent;
+    background-clip: text;
+    z-index: 1;
 }
