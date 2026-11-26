@@ -1,5 +1,7 @@
 ![Banner](README_Files/banner.png)
 
+![stats](https://hackatime.hackclub.com/api/v1/badge/U0ASCH2DQFM/BrundevCoder/button-nyon)
+
 # ButtonNyon
 ButtonNyon is a project where all you have to do is click on the big red button! Basically, the more you click, the higher you level up and the more multipliers you earn!
 
