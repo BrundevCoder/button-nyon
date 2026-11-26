@@ -1,4 +1,4 @@
-![Banner](README_FIles/banner.png)
+![Banner](README_Files/banner.png)
 
 # ButtonNyon
 ButtonNyon is a project where all you have to do is click on the big red button! Basically, the more you click, the higher you level up and the more multipliers you earn!
