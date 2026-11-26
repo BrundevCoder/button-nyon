@@ -3,6 +3,8 @@
 # ButtonNyon
 ButtonNyon is a project where all you have to do is click on the big red button! Basically, the more you click, the higher you level up and the more multipliers you earn!
 
+You can play it [here](https://brundevcoder.github.io/button-nyon/)
+
 ## How does it work?
 
 Every time yoou click, the code counts as one click, and if you look at the progress bar at the top of the screen, it shows how far you are from leveling up. Whenever it reaches 100%, the code automatically adds the multipliers and changes your button according to your progress.
