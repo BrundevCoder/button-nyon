@@ -10,8 +10,52 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    overflow: hidden;
     min-height: 100vh;
     background: #151414;
+}
+
+header {
+    padding: .7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.level-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.upper-part {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bar-back {
+    width: 100%;
+    height: 20px;
+    background: rgb(19, 82, 184);
+    border: 2px solid rgb(12, 48, 105);
+    border-radius: 99px;
+}
+
+.bar {
+    width: var(--percent);
+    height: 100%;
+    background: rgb(49, 212, 51);
+    border-radius: 99px;
 }
 
 main {
