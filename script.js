@@ -1,24 +1,25 @@
 const counterDisplay = document.querySelector(".counter");
 const button = document.querySelector(".btn");
 const bar = document.querySelector(".bar");
+const levelStatsSpan = document.getElementById("levelStats");
 
 const levels = [
     {"min": 0, "Multiplier": 1, "ClassNameCSS": "", "Name": "normal"},
     {"min": 20, "Multiplier": 2, "ClassNameCSS": "bronze", "Name": "Bronze"},
     {"min": 50, "Multiplier": 3, "ClassNameCSS": "golden", "Name": "Golden"},
-    {"min": 100, "Multiplier": 5, "ClassNameCSS": "diamon", "Name": "Golden"},
+    {"min": 100, "Multiplier": 5, "ClassNameCSS": "diamon", "Name": "Diamon"},
+    {"min": 500, "Multiplier": 6, "ClassNameCSS": "dots", "Name": "Dots"},
+    {"min": 1500, "Multiplier": 10, "ClassNameCSS": "rainbow", "Name": "Rainbow"},
+    {"min": 5000, "Multiplier": 10, "ClassNameCSS": "", "Name": "Max"},
 ]
 
 let clicks = 0;
 let maxedOut = false;
 let levelName = 0;
+let multi = 1;
 
 button.addEventListener("click", () => {
-    if (maxedOut) {
-        return;
-    }
-
-    clicks++;
+    clicks += 1 * multi;
     navigator.vibrate(15)
     makeSound();
     checkLevelsAndApplyChanges();
@@ -44,6 +45,7 @@ function makeSound() {
 
 function checkLevelsAndApplyChanges() {
     if (maxedOut) {
+        bar.textContent = "MAXED OUT";
         return;
     }
 
@@ -63,16 +65,18 @@ function checkLevelsAndApplyChanges() {
     }
 
     let lastLevelMin = levels[levelI].min;
-    let nextLevelMin = "";
+    let nextLevelMin = 0;
 
     if (levelI + 1 <= levels.length) {
         try {
             nextLevelMin = levels[levelI + 1].min;
         }
         catch (error) {
-
+            maxedOut = true;
         }
     }
+
+    levelStatsSpan.textContent = `Level: ${levelI} (${levels[levelI].Name}) | ${levels[levelI].Multiplier}x`
 
     const lastLevelMinSpan = document.getElementById("lastLevelMin");
     const nextLevelMinSpan = document.getElementById("nextLevelMin");
@@ -81,6 +85,12 @@ function checkLevelsAndApplyChanges() {
     nextLevelMinSpan.textContent = nextLevelMin ? nextLevelMin : "MAX";
 
     let percent = (clicks / nextLevelMin) * 100;
+
+    if (percent === Infinity) {
+        bar.textContent = "MAXED OUT";
+        bar.width = "100%";
+        return;
+    }
 
     bar.style.width = `${Math.round(percent)}%`;
     bar.textContent = `${Math.round(percent)}%`;
@@ -93,4 +103,6 @@ function checkLevelsAndApplyChanges() {
         return;
     }
     button.classList.add(levels[levelI].ClassNameCSS);
+
+    multi = levels[levelI].Multiplier;
 }
